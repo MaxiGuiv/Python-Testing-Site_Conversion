@@ -1,46 +1,42 @@
-print("Only accepts grams, kilograms, and tonnes atm.")
-fq = input("Type the number")
-fl = input("Type the label of this")
-tl = input("What label to convert this to?")
+avail_lbls = ["grams", "kilograms", "tonnes"]
+print(f"Only accepts {avail_lbls} atm.")
+
+fq = int(input("Type the number: "))
+fl = input("Type the label of this: ")
+tl = input("What label to convert this to?: ")
 
 def result():
-    print(f"{fq}{op}")
+    print("Result:")
+    print(f"{fq} {fl}{op}")
     print(f"{rv} {tl}")
 def error():
     print("Labels are either misspelled, not in plural form, or currently not in the program.")
 
-if fl == "grams":
-    if tl == "kilograms":
-        rv = fq / 1000
-        op = "/1,000"
+if fl in avail_lbls and tl in avail_lbls:
+    if fl == "grams":
+        if tl == "kilograms":
+            rv = fq / 1000
+            op = "/1000 kilograms"
+        elif tl == "tonnes":
+            rv = fq / 1000000
+            op = "/1000000 tonnes"
         result()
-    elif tl == "tonnes":
-        rv = fq / 1000000
-        op = "/1,000,000"
+    elif fl == "kilograms":
+        if tl == "grams":
+            rv = fq * 1000
+            op = "*1000 grams"
+        elif tl == "tonnes":
+            rv = fq / 1000
+            op = "/1000 tonnes"
         result()
-    else:
-        error()
-
-elif fl == "kilograms":
-    if tl == "grams":
-        rv = fq * 1000
-        op = "*1,000"
-        result()
-    elif tl == "tonnes":
-        rv = fq / 1000
-        op = "/1,000"
-        result()
-    else:
-        error()
-
-elif fl == "tonnes":
-    if tl == "grams":
-        rv = fq * 1000000
-        op = "*1,000,000"
-        result()
-    elif tl == "kilograms":
-        rv = fq * 1000
-        op = "*1,000"
-        result()
-    else:
-        error()
+    elif fl == "tonnes":
+        if tl == "grams":
+            rv = fq * 1000000
+            op = "*1000000 grams"
+            result()
+        elif tl == "kilograms":
+            rv = fq * 1000
+            op = "*1000 kilograms"
+            result()
+else:
+    error()
