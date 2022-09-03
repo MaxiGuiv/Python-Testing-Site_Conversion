@@ -1,13 +1,7 @@
-# Write the inputs in the next three lines. Labels must be in plural form.
-#Accepted labels atm: Weight: grams,kilograms,tonnes
-from_quantity = 1050
-from_label = "grams"
-to_label = "tonnes"
-
-fq = from_quantity
-fl = from_label
-tl = to_label
-rv = 0
+print("Only accepts grams, kilograms, and tonnes atm.")
+fq = input("Type the number")
+fl = input("Type the label of this")
+tl = input("What label to convert this to?")
 
 def result():
     print(f"{fq}{op}")
