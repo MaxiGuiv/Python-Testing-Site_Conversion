@@ -6,9 +6,8 @@ fl = input("Type the label of this: ")
 tl = input("What label to convert this to?: ")
 
 def result():
-    print("Result:")
-    print(f"{fq} {fl}{op}")
-    print(f"{rv} {tl}")
+    print(f"Formula: {fq} {fl}{op}")
+    print(f"Answer: {rv} {tl}")
 def error():
     print("Labels are either misspelled, not in plural form, or currently not in the program.")
 
@@ -20,7 +19,6 @@ if fl in avail_lbls and tl in avail_lbls:
         elif tl == "tonnes":
             rv = fq / 1000000
             op = "/1000000 tonnes"
-        result()
     elif fl == "kilograms":
         if tl == "grams":
             rv = fq * 1000
@@ -28,15 +26,13 @@ if fl in avail_lbls and tl in avail_lbls:
         elif tl == "tonnes":
             rv = fq / 1000
             op = "/1000 tonnes"
-        result()
     elif fl == "tonnes":
         if tl == "grams":
             rv = fq * 1000000
             op = "*1000000 grams"
-            result()
         elif tl == "kilograms":
             rv = fq * 1000
             op = "*1000 kilograms"
-            result()
+    result()
 else:
     error()
