@@ -9,7 +9,7 @@ def result():
     print(f"Formula: {fq} {fl} {op} {tl}")
     print(f"Answer: {rv} {tl}")
 def error():
-    print("Labels are either misspelled, not in plural form, or currently not in the program.")
+    print(f"Labels are either misspelled, or currently not in the program. The only accepted labels are: {avail_lbls}")
 
 if fl in avail_lbls and tl in avail_lbls:
     if fl == "g":
