@@ -1,7 +1,7 @@
-avail_lbls = ["g", "kg", "mg"]
+avail_lbls = ["g", "kg", "mg", "lb"]
 print(f"Only accepts {avail_lbls} atm.")
 
-fq = int(input("Type the number: "))
+fq = float(input("Type the number: "))
 fl = input("Type the label of this: ")
 tl = input("What label to convert this to?: ")
 
@@ -15,24 +15,43 @@ if fl in avail_lbls and tl in avail_lbls:
     if fl == "g":
         if tl == "kg":
             rv = fq / 1000
-            op = "/1000 kilograms"
+            op = "/ 1000 kilograms"
         elif tl == "mg":
             rv = fq * 1000
-            op = "*1000"
+            op = "* 1000"
+        elif tl == "lb":
+            rv = fq / 453.592
+            op = "/ 453.592"
     elif fl == "kg":
         if tl == "g":
             rv = fq * 1000
-            op = "*1000 grams"
+            op = "* 1000 grams"
         elif tl == "mg":
             rv = fq * 1000000
-            op = "*1000000"
+            op = "* 1000000"
+        elif tl == "lb":
+            rv = fq / 0.454
+            op = "/ 0.454"
     elif fl == "mg":
         if tl == "g":
             rv = fq / 1000
-            op = "/1000"
+            op = "/ 1000"
         elif tl == "kg":
             rv = fq / 1000000
-            op = "/1000000"
+            op = "/ 1000000"
+        elif tl == "lb":
+            rv = fq / 453592.37
+            op = "/ 453592.37"
+    elif fl == "lb":
+        if tl == "g":
+            rv = fq * 453.592
+            op = "* 453.592"
+        elif tl == "kg":
+            rv = fq * 0.454
+            op = "* 0.454"
+        elif tl == "mg":
+            rv = fq * 453592.37
+            op = "* 453592.37"
     result()
 else:
     error()
